@@ -1,4 +1,5 @@
 class BookmarksController < ApplicationController
+  before_filter :authorize
 
   def index
     @bookmarks = Bookmark.all
