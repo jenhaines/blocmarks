@@ -21,14 +21,14 @@ admin.save
 
 #make some topics
 topics=[]
-5.times {topics << "##{Faker::Lorem.word}"}
+12.times {topics << "##{Faker::Lorem.word}"}
 
 
  # Create bookmarks
- 30.times do
+ 60.times do
    Bookmark.create!(
      user:   users.sample,
-     topic:  topics[rand(4)],
+     topic:  topics[rand(12)],
      address:   Faker::Internet.url
    ) 
  end

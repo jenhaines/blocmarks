@@ -13,7 +13,7 @@
       <ul class="nav nav-tabs">
         <li><%= link_to "Blocmarks", welcome_index_path %></li>
         <li><%= link_to "About", welcome_about_path %></li>
-        <li><%= link_to "My Bookmarks", bookmarks_path(user: current_user) %></li>
+        <li><%= link_to "My Bookmarks", bookmarks_path %></li>
         <div class="pull-right user-info">
           <% if current_user %>
             Logged In as <%= current_user.name %>.

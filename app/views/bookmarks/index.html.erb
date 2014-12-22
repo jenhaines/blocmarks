@@ -1,10 +1,19 @@
 <div class="row">
-<div class="col-md-8">
-<ul>
-<% @topics.each do |t| %>
-<li><%= t %></li>
-
-<% end %>
-</ul>
-</div>
+  <% @topics.each_with_index do |t, i| %>
+    <% if (i  % 3) == 0%>
+      <div class='row'>
+    <% end %>
+    <div class="col-md-4">
+    <h1><%= t%></h1>
+    <% @bookmarks.each do |b| %>
+      <% if t == b.topic  %>
+        <%= link_to b.address, "#" %>
+        <i> - <%= b.user.name %></i>
+      <% end %>
+    <% end %>
+    </div>
+    <% if (( i -2) % 3) == 0%>
+      </div>
+    <% end %>
+  <% end %>
 </div>
