@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   
   resources :sessions
   resources :users
-  resources :bookmarks
+  resources :bookmarks do
+    resources :favorites, only: [:create, :destroy]
+  end
 
   get 'welcome/index'
 

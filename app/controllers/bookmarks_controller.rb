@@ -2,7 +2,12 @@ class BookmarksController < ApplicationController
   before_filter :authorize
 
   def index
-    @bookmarks = Bookmark.all
+    @user = current_user
+    if params[:id].to_i == @user.id 
+      @bookmarks = @user.bookmarks
+    else
+      @bookmarks = Bookmark.all
+    end
     @topics = @bookmarks.pluck(:topic).uniq
   end
 

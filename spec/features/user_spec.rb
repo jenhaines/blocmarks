@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'User' do
+feature User do
 
   before { @user = create(:user) }
 
