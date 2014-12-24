@@ -1,12 +1,23 @@
 
  @import "bootstrap";
 
+  body {
+    // background-color: #b2b2b2;
+    // background-image: ("green_dust_scratch.png");
+    // background-color: #0099FF;
+    background-color: rgba(0, 153, 255, .3);
+  }
+
 .user-info {
    margin-top: 9px;
  }
  
  .nav {
    margin: 5px;
+ }
+
+ .favorite {
+   margin: 10px 0px;
  }
 
 // .col-md-4 {

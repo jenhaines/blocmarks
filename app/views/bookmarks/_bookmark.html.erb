@@ -1,6 +1,8 @@
+<div class="col-md-4">
+  <%= link_to bookmark.address, bookmark.address %>
+  <%= render partial: 'favorites/favorite', locals: {bookmark: bookmark} %>
+   <a href="#" class="thumbnail">
+  <%= image_tag("filler.svg") %>
+   </a>
 
-    <tr>
-      <td><%= bookmark.topic %></td>
-      <td><%= bookmark.address %></td>
-      <td><%= bookmark.user.name %></td>
-    </tr>
+</div>

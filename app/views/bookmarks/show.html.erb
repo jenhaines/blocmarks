@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-md-4">
+      <h2><%= @bookmark.topic %></h2>
+      <b><p><%= @bookmark.address %></p></b>
+  </div>
+  <div class="col-md-4">
+     <%= render partial: 'favorites/favorite' unless current_user.bookmarks.include?(@bookmark) %>
+  </div>
+</div>

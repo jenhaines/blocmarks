@@ -9,11 +9,16 @@ class BookmarksController < ApplicationController
       @bookmarks = Bookmark.all
     end
     @topics = @bookmarks.pluck(:topic).uniq
-  end
 
-
-  def current_bookmarks(topic)
-    @bookmark = Bookmark.where topic: topic
   end
   
+  def show
+    @bookmark = Bookmark.find(params[:id])
+  end
+
+  def topic
+    @topic = params[:topic]
+    @bookmarks = Bookmark.current_topic(@topic)
+  end
+
 end

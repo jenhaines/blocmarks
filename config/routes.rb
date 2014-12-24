@@ -20,4 +20,7 @@ Rails.application.routes.draw do
 
   post :incoming, to: 'incoming#create'
 
+  get 'bookmark/topic/:topic', to: 'bookmarks#topic', as: 'topic'
+
+
 end

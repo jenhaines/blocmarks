@@ -4,6 +4,9 @@ class Bookmark < ActiveRecord::Base
 
   default_scope { order('topic ASC')}
 
-
+  def self.current_topic(topic)
+    where(topic: topic)
+  end
+  
 
 end

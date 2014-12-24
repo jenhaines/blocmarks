@@ -14,21 +14,21 @@ require 'faker'
 #Create a known email
 admin = User.new(
   name:     'Admin User',
-  email:    'motochick67@gmail.com',
+  email:    'admin@example.com',
   password: 'welcome',
 )
 admin.save
 
 #make some topics
 topics=[]
-12.times {topics << "##{Faker::Lorem.word}"}
+20.times {topics << "##{Faker::Lorem.word}"}
 
 
  # Create bookmarks
- 60.times do
+ 80.times do
    Bookmark.create!(
      user:   users.sample,
-     topic:  topics[rand(12)],
+     topic:  topics[rand(20)],
      address:   Faker::Internet.url
    ) 
  end
