@@ -1,8 +1,23 @@
 <div class="col-md-4">
   <%= link_to bookmark.address, bookmark.address %>
-  <%= render partial: 'favorites/favorite', locals: {bookmark: bookmark} %>
-   <a href="#" class="thumbnail">
+    <div class="favorite">
+  <% unless current_user.bookmarks.include?(bookmark) %>
+      <% if favorite = current_user.favorited(bookmark) %>
+        <%= link_to [bookmark, favorite], class: 'btn btn-danger', method: :delete do %>
+          <i class="glyphicon glyphicon-star-empty"> </i>&nbsp; Unlike
+        <% end %>
+      <% else %>
+        <%= link_to [bookmark, Favorite.new], class: 'btn btn-primary', method: :post do %>
+          <i class="glyphicon glyphicon-star"> </i>&nbsp; Like
+        <% end %>
+      <% end %>
+  <% else %>
+    <%= link_to "Delete", "#", class: "btn btn-danger" %>
+  <% end %>
+    </div>
+
+  <a href="#" class="thumbnail">
   <%= image_tag("filler.svg") %>
-   </a>
+  </a>
 
 </div>

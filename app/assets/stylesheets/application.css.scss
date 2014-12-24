@@ -3,10 +3,18 @@
 
   body {
     // background-color: #b2b2b2;
-    // background-image: ("green_dust_scratch.png");
+    background-image:  url(/assets/green_dust_scratch.png)
     // background-color: #0099FF;
-    background-color: rgba(0, 153, 255, .3);
+    // background-color: rgba(0, 153, 255, .3);
   }
+
+.container {
+  background-color: #fff;
+}
+
+.row {
+  padding: 0px 10px
+}
 
 .user-info {
    margin-top: 9px;

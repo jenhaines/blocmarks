@@ -17,6 +17,7 @@ class BookmarksController < ApplicationController
   end
 
   def topic
+    @user = current_user
     @topic = params[:topic]
     @bookmarks = Bookmark.current_topic(@topic)
   end

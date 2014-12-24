@@ -6,11 +6,11 @@ class FavoritesController < ApplicationController
 
     if favorite.save
       flash[:notice] = "Favorited bookmark"
-     redirect_to [@bookmark]
+      redirect_to :back
 
     else
       flash[:error] = "Unable to add favorite. Please try again."
-      redirect_to [@bookmark]
+      redirect_to :back
     end
   end
 
@@ -19,11 +19,11 @@ class FavoritesController < ApplicationController
    favorite = current_user.favorites.find(params[:id])
    if favorite.destroy
      flash[:notice] = "Unfavorited bookmark"
-     redirect_to [@bookmark]
+     redirect_to :back
      
    else
     flash[:error] = "Unable to fulfill request. Please try again."
-    redirect_to[@bookmark]
+    redirect_to :back
    end
  end
 end
