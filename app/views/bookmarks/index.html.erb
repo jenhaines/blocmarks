@@ -1,17 +1,7 @@
-<div class="row">
-<h1><%= current_user.bookmarks.count == @bookmarks.count ? "#{current_user.name}'s Bookmarks" : "All Bookmarks" %></h1>
-  <% @topics.each_with_index do |t, i| %>
-    <% if (i  % 3) == 0%>
-      <div class='row'>
-    <% end %>
-    <div class="col-md-4">
-    <h1><%= link_to t, topic_path(topic: t)%></h1>
-<% @bookmarks.current_topic(t).each do |b| %>
-<p><%= link_to b.address, "#" %></p>
+<h1>What's Hot</h1>
+<% @topics.each do | topic | %>
+  <div class="row">
+    <h2><%= topic %></h2>
+    <%= render @bookmarks.current_topic( topic ) %>
+  </div>
 <% end %>
-    </div>
-    <% if (( i -2) % 3) == 0%>
-      </div>
-    <% end %>
-  <% end %>
-</div>

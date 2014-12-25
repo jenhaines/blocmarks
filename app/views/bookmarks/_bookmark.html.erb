@@ -3,7 +3,7 @@
     <div class="favorite">
   <% unless current_user.bookmarks.include?(bookmark) %>
       <% if favorite = current_user.favorited(bookmark) %>
-        <%= link_to [bookmark, favorite], class: 'btn btn-danger', method: :delete do %>
+        <%= link_to [bookmark, favorite], class: 'btn btn-success', method: :delete do %>
           <i class="glyphicon glyphicon-star-empty"> </i>&nbsp; Unlike
         <% end %>
       <% else %>
@@ -12,7 +12,7 @@
         <% end %>
       <% end %>
   <% else %>
-    <%= link_to "Delete", "#", class: "btn btn-danger" %>
+    <%= link_to "Delete", bookmark, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
     </div>
 

@@ -22,4 +22,15 @@ class BookmarksController < ApplicationController
     @bookmarks = Bookmark.current_topic(@topic)
   end
 
+  def destroy
+    @bookmark = Bookmark.find(params[:id])
+    if @bookmark.destroy
+      flash[:notice] = "Bookmark was deleted successfully."
+      redirect_to :back
+    else
+      flash[:error] = "There was an error deleting the bookmark."
+      redirect_to :back
+    end
+  end
+
 end
