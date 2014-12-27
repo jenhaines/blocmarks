@@ -1,7 +1,7 @@
 require 'faker'
  
  # Create Users
- 15.times do
+ 8.times do
    user = User.new(
      name:     Faker::Name.name,
      email:    Faker::Internet.email,
@@ -21,15 +21,22 @@ admin.save
 
 #make some topics
 topics=[]
-20.times {topics << "##{Faker::Lorem.word}"}
+8.times {topics << "##{Faker::Lorem.word}"}
+
+#make some real Urls
+urls = ["http://www.yahoo.com","http://www.msn.com", "http://www.google.com", "http://www.sfgate.com",
+  "http://www.stltoday.com", "http://www.nhl.com", "http://www.huffingtonpost.com", "http://www.slickdeals.net", 
+  "http://www.newyorktimes.com"]
+
 
 
  # Create bookmarks
- 80.times do
+ 20.times do
    Bookmark.create!(
      user:   users.sample,
      topic:  topics[rand(20)],
-     address:   Faker::Internet.url
+     # address:   Faker::Internet.url
+     address: urls[rand((urls.length-1))]
    ) 
  end
  bookmarks = Bookmark.all

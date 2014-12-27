@@ -1,23 +1,25 @@
 <div class="col-md-4">
-  <%= link_to bookmark.address, bookmark.address %>
-    <div class="favorite">
-  <% unless current_user.bookmarks.include?(bookmark) %>
-      <% if favorite = current_user.favorited(bookmark) %>
-        <%= link_to [bookmark, favorite], class: 'btn btn-success', method: :delete do %>
-          <i class="glyphicon glyphicon-star-empty"> </i>&nbsp; Unlike
+  <div class="thumbnail">
+  <%= link_to bookmark.address do %>
+    <%= image_tag bookmark.thumbnail_url, size: "170x170", alt: bookmark.address %>
+    <% end %>
+    <div class="caption">
+      <%= truncate(bookmark.title, length: 40) %>
+      <div class="favorite">
+        <% unless current_user.bookmarks.include?(bookmark) %>
+          <% if favorite = current_user.favorited(bookmark) %>
+            <%= link_to [bookmark, favorite], class: 'btn btn-success', method: :delete do %>
+              <i class="glyphicon glyphicon-star-empty"> </i>&nbsp; Unlike
+            <% end %>
+          <% else %>
+            <%= link_to [bookmark, Favorite.new], class: 'btn btn-primary', method: :post do %>
+              <i class="glyphicon glyphicon-star"> </i>&nbsp; Like
+            <% end %>
+          <% end %>
+        <% else %>
+          <%= link_to "Delete", bookmark, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
-      <% else %>
-        <%= link_to [bookmark, Favorite.new], class: 'btn btn-primary', method: :post do %>
-          <i class="glyphicon glyphicon-star"> </i>&nbsp; Like
-        <% end %>
-      <% end %>
-  <% else %>
-    <%= link_to "Delete", bookmark, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
+      </div>
     </div>
-
-  <a href="#" class="thumbnail">
-  <%= image_tag("filler.svg") %>
-  </a>
-
+  </div>
 </div>

@@ -16,7 +16,7 @@
 }
 
 .row {
-  padding: 0px 20px
+  padding: 0px 20px 10px 20px;
 }
 
 .user-info {
@@ -30,6 +30,12 @@
  .favorite {
    margin: 10px 0px;
  }
+
+ .thumbnail{
+  height: 260px;
+  width: 302px;
+ }
+
 
  .btn {
  }

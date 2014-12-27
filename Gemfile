@@ -67,3 +67,6 @@ gem 'faker'
 
 #ENV Variables
 gem 'figaro', '1.0'
+
+#Embedded Media
+gem 'embedly'
