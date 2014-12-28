@@ -20,27 +20,36 @@ admin = User.new(
 admin.save
 
 #make some topics
-topics=[]
-8.times {topics << "##{Faker::Lorem.word}"}
+8.times do
+  topic = Topic.new( topic: "##{Faker::Lorem.word}")
+  topic.save!
+end
+topics = Topic.all
 
 #make some real Urls
 urls = ["http://www.yahoo.com","http://www.msn.com", "http://www.google.com", "http://www.sfgate.com",
   "http://www.stltoday.com", "http://www.nhl.com", "http://www.huffingtonpost.com", "http://www.slickdeals.net", 
-  "http://www.newyorktimes.com"]
-
-
+  "http://www.newyorktimes.com", "http://www.youtube.com", "http://www.vimeo.com"]
 
  # Create bookmarks
  20.times do
    Bookmark.create!(
      user:   users.sample,
-     topic:  topics[rand(20)],
-     # address:   Faker::Internet.url
      address: urls[rand((urls.length-1))]
    ) 
  end
  bookmarks = Bookmark.all
+
+ #Create HAMT
+ bookmarks.each do |b|
+  c = rand(1..3)
+  c.times { b.topics << topics.sample}
+  b.save!
+end
+
+
  
  puts "Seed finished"
  puts "#{users.count} users created"
+ puts "#{topics.count} topics created"
  puts "#{bookmarks.count} bookmarks created"

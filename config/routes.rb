@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   
   resources :sessions
   resources :users
+  resources :topics
   resources :bookmarks do
     resources :favorites, only: [:create, :destroy]
   end
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
 
   post :incoming, to: 'incoming#create'
 
-  get 'bookmark/topic/:topic', to: 'bookmarks#topic', as: 'topic'
+  # get 'bookmark/topic/:topic', to: 'bookmarks#topic', as: 'topic'
 
 
 end

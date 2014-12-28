@@ -1,7 +1,9 @@
 <h1>What's Hot</h1>
-<% @topics.each do | topic | %>
   <div class="row">
-    <h2><%= topic %></h2>
-    <%= render @bookmarks.current_topic( topic ) %>
+  <div class="col-md-2">
+    <ul class="list-group">
+    <%= render @topics %>
+    </ul>
   </div>
-<% end %>
+    <%= render @bookmarks %>
+  </div>

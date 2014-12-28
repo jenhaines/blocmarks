@@ -8,7 +8,8 @@ class BookmarksController < ApplicationController
     else
       @bookmarks = Bookmark.all
     end
-    @topics = @bookmarks.pluck(:topic).uniq
+    @topics = Topic.all
+    # @topics = @bookmarks.pluck(:topic).uniq
 
   end
   
@@ -16,11 +17,11 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.find(params[:id])
   end
 
-  def topic
-    @user = current_user
-    @topic = params[:topic]
-    @bookmarks = Bookmark.current_topic(@topic)
-  end
+  # def topic
+  #   @user = current_user
+  #   @topic = params[:topic]
+  #   @bookmarks = Bookmark.current_topic(@topic)
+  # end
 
   def destroy
     @bookmark = Bookmark.find(params[:id])
