@@ -3,24 +3,25 @@
 
   body {
     // background-color: #b2b2b2;
-    // background-image:  url(/assets/green_dust_scratch.png)
+    background-image:  url(/assets/green_dust_scratch.png)
     // background-color: #0099FF;
-    background-color: rgba(0, 153, 255, .3);
+    // background-color: rgba(0, 153, 255, .3);
   }
+  
 
 .container {
   margin-top: 20px;
-  background-color: #fff;
-  border-radius: 40px;
+  background-color: rgba(0, 153, 255, .3);
+  border-radius: 30px;
 
 }
 
 .row {
-  padding: 0px 20px 10px 20px;
+  // padding: 0px 20px 10px 20px;
 }
 
 .user-info {
-   margin-top: 9px;
+   margin: 40px;
  }
  
  .nav {
@@ -28,18 +29,14 @@
  }
 
  .favorite {
-   margin: 10px 0px;
+   // margin: 10px 0px;
  }
 
  .thumbnail{
   height: 260px;
-  width: 302px;
+  width: 282px;
  }
 
 
  .btn {
  }
-
-// .col-md-4 {
-//   border: solid 1px;
-// }

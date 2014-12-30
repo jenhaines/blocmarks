@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   
   resources :sessions
   resources :users
-  resources :topics
   resources :bookmarks do
     resources :favorites, only: [:create, :destroy]
   end

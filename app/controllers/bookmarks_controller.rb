@@ -4,24 +4,18 @@ class BookmarksController < ApplicationController
   def index
     @user = current_user
     if params[:id].to_i == @user.id 
-      @bookmarks = @user.bookmarks
+      @bookmarks = @user.bookmarks      
+    elsif params.has_key?(:topic)
+      @bookmarks = Topic.find(params[:topic]).bookmarks
     else
       @bookmarks = Bookmark.all
     end
     @topics = Topic.all
-    # @topics = @bookmarks.pluck(:topic).uniq
-
   end
   
   def show
     @bookmark = Bookmark.find(params[:id])
   end
-
-  # def topic
-  #   @user = current_user
-  #   @topic = params[:topic]
-  #   @bookmarks = Bookmark.current_topic(@topic)
-  # end
 
   def destroy
     @bookmark = Bookmark.find(params[:id])

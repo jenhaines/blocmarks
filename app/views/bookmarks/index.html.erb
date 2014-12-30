@@ -1,9 +1,14 @@
-<h1>What's Hot</h1>
-  <div class="row">
-  <div class="col-md-2">
-    <ul class="list-group">
-    <%= render @topics %>
-    </ul>
+<div class="row">
+  <div class="col-md-12">
+    <h3>Topics</h3>
   </div>
+  <div class="col-md-2">
+    <div class="list-group">
+        <b><%= link_to "All", bookmarks_path, class: "list-group-item #{'active' if Bookmark.all == @bookmarks}" %></b>
+      <%= render @topics %>
+    </div>
+  </div>
+  <div class="col-md-10">
     <%= render @bookmarks %>
   </div>
+</div>

@@ -1,2 +1,2 @@
-<li class="list-group-item"><%= link_to topic.topic, "#" %><%= content_tag :span, topic.bookmarks.count, class: "badge" %></li>
+<b><%= link_to topic.topic, bookmarks_path(topic:topic), class: "list-group-item #{'active' if params[:topic].to_i == topic.id}"%></b>
 
