@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141228001926) do
+ActiveRecord::Schema.define(version: 20150101001747) do
 
   create_table "bookmarks", force: true do |t|
     t.string   "address"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20141228001926) do
   end
 
   add_index "topics", ["bookmark_id"], name: "index_topics_on_bookmark_id"
+  add_index "topics", ["topic"], name: "index_topics_on_topic", unique: true
 
   create_table "users", force: true do |t|
     t.string   "name"

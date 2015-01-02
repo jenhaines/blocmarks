@@ -19,6 +19,7 @@
         <% else %>
           <%= link_to "Delete", bookmark, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
+        <%= bookmark.topics.pluck(:topic).join(", ") %>
       </div>
     </div>
   </div>

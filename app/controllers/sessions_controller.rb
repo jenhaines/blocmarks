@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
       redirect_to bookmarks_path, notice: "Logged in!"
     else
       flash.now.alert = "Email or password is invalid."
+      redirect_to :back
     end
   end
 

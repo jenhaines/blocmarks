@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   root to: 'welcome#index'
 
+  post 'welcome/show'
+
   post :incoming, to: 'incoming#create'
 
   # get 'bookmark/topic/:topic', to: 'bookmarks#topic', as: 'topic'

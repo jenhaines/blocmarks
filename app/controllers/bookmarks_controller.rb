@@ -19,6 +19,10 @@ class BookmarksController < ApplicationController
 
   def destroy
     @bookmark = Bookmark.find(params[:id])
+    topcount = @bookmark.topics.count
+
+    
+
     if @bookmark.destroy
       flash[:notice] = "Bookmark was deleted successfully."
       redirect_to :back

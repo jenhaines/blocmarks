@@ -3,17 +3,15 @@
 
   body {
     // background-color: #b2b2b2;
-    background-image:  url(/assets/green_dust_scratch.png)
+    // background-image:  url(/assets/green_dust_scratch.png)
     // background-color: #0099FF;
-    // background-color: rgba(0, 153, 255, .3);
+    background-color: rgba(0, 153, 255, .3);
   }
   
 
 .container {
-  margin-top: 20px;
-  background-color: rgba(0, 153, 255, .3);
-  border-radius: 30px;
-
+  // margin-top: 20px;
+  background-color: #fff;
 }
 
 .row {
@@ -35,8 +33,4 @@
  .thumbnail{
   height: 260px;
   width: 282px;
- }
-
-
- .btn {
  }

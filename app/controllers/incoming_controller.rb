@@ -8,23 +8,27 @@ class IncomingController < ApplicationController
     if params.has_key?(:sender)
       sender = User.where(:email => params[:sender]).first
       unless sender.nil?
+        puts "SENDER FOUND"
         if params.has_key?(:subject)
-          subject = params[:subject] 
-          topic = (/#\S+/.match(subject)).to_s
+          subject = params[:subject]
+          tops = subject.scan(/#\S+/)
+          puts "HASHTAGS #{tops}"
         end
         if params.has_key?(:'body-plain')
           body = params[:'body-plain']
-          address = (/https?:\/\/[\S]+/.match(body)).to_s
+          address = body.scan(/https?:\/\/[\S]+/)
+          puts "URLS #{address}"
         end
-        bookmark = sender.bookmarks.build(address: address, topic: topic )
-        if bookmark.save
-          puts "Bookmark created for #{sender.name}"
-          puts "Topic #{topic}"
-          puts "URL #{address}"
-          UserMailer.acknowledge_email(sender).deliver
-        else
-          puts "BOOKMARK WAS NOT SAVED, check error logs"
+
+        #Create Topics
+        current_topics = tops.map {|t| Topic.where(topic: t).first_or_create }
+
+        #Create bookmark topics
+        address.each do |a|
+          b = sender.bookmarks.create( address: a)
+          current_topics.each{ |tp| b.bookmarktopics.create(topic: tp)}
         end
+
       end
     end
     head 200
