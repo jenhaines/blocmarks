@@ -9,10 +9,12 @@ class Bookmark < ActiveRecord::Base
 
   default_scope { order('created_at ASC')}
 
-  # def self.current_topic(topic)
-  #   where(topic: topic)
-  # end
+  def orphan_check
+    self.topics.each { |t| t.destroy! if t.bookmarks.count == 1 }
+  end
 
+
+private
   def set_embedly_url
     api = Embedly::API.new :key => ENV['EMBEDLY_API_KEY'], :user_agent => 'Mozilla/5.0 (compatible; mytestapp/1.0; my@email.com)'
     obj = api.oembed :url => self.address

@@ -4,13 +4,15 @@ class BookmarksController < ApplicationController
   def index
     @user = current_user
     if params[:id].to_i == @user.id 
-      @bookmarks = @user.bookmarks      
+      @bookmarks = @user.bookmarks
+      @likes = @user.favbookmarks
+      render 'home'      
     elsif params.has_key?(:topic)
-      @bookmarks = Topic.find(params[:topic]).bookmarks
+      @topic = Topic.find(params[:topic])
+      @bookmarks = @topic.bookmarks
     else
       @bookmarks = Bookmark.all
     end
-    @topics = Topic.all
   end
   
   def show
@@ -19,9 +21,7 @@ class BookmarksController < ApplicationController
 
   def destroy
     @bookmark = Bookmark.find(params[:id])
-    topcount = @bookmark.topics.count
-
-    
+    @bookmark.orphan_check unless @bookmark.topics.nil?
 
     if @bookmark.destroy
       flash[:notice] = "Bookmark was deleted successfully."

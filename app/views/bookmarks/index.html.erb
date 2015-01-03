@@ -1,15 +1,4 @@
 <div class="row">
-  <div class="col-md-12">
-    <h3>Topics</h3>
-  </div>
-  <div class="col-md-2">
-    <div class="list-group">
-        <b><%= link_to "All", bookmarks_path, class: "list-group-item #{'active' if Bookmark.all == @bookmarks}" %></b>
-        <b><%= link_to "My Bookmarks", bookmarks_path(id: @user), class: "list-group-item #{'active' if @bookmarks == @user.bookmarks}" %></b>
-      <%= render @topics %>
-    </div>
-  </div>
-  <div class="col-md-10">
-    <%= render @bookmarks %>
-  </div>
+    <h3><%= @bookmarks == Bookmark.all ? "All Topics" : @topic.topic %></h3>
+    <%= render partial: "bookmark", collection: @bookmarks, locals: {column: "col-md-4"} %>
 </div>

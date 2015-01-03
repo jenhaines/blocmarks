@@ -4,7 +4,7 @@ class UserMailer < ActionMailer::Base
   def welcome_email(user)
     @user = user
     @url = 'https://blocmarks-jh.herokuapp.com/'
-    mail(to: @user.email, subject: 'Welcome to my awesome site')
+    mail(to: @user.email, subject: 'Welcome to Blocmarks')
   end
 
   def receive(email)
