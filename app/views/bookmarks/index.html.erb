@@ -1,4 +1,9 @@
-<div class="row">
-    <h3><%= @bookmarks == Bookmark.all ? "All Topics" : @topic.topic %></h3>
+<div class="bg-primary">
+</div>
+<div class="container">
+    <%= @topic ? @topic.topic : "All Topics" %>
+
+  <div class="row">
     <%= render partial: "bookmark", collection: @bookmarks, locals: {column: "col-md-4"} %>
+  </div>
 </div>

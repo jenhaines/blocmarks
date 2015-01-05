@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-source 'https://rails-assets.org'
 
 group :production do
   gem 'pg'
@@ -72,5 +71,3 @@ gem 'figaro', '1.0'
 #Embedded Media
 gem 'embedly'
 
-#Additional Design Stuff
-gem 'rails-assets-holderjs'

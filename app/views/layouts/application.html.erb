@@ -4,6 +4,7 @@
   <title>Blocmarks</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= favicon_link_tag %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -12,7 +13,7 @@
     <h1><%= link_to "blocmarks" , root_path%> <small>blocmark it...and forget it!</small></h1>
     <ul class="nav navbar-nav"> 
       <li class="<%= is_active?(welcome_about_path) %>">
-        <%= link_to "about", welcome_about_path %>      
+        <%= link_to "About", welcome_about_path %>      
       </li>
       <li class="dropdown <%= 'active' if params.has_key?(:topic) %>">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Topics <span class="caret"></span></a>
@@ -25,7 +26,7 @@
         </ul>
       </li>
       <li class="<%= is_active?(bookmarks_path(id: current_user)) %>">
-      <%= link_to "my bookmarks", bookmarks_path(id: current_user) %>
+      <%= link_to "My Bookmarks", bookmarks_path(id: current_user) %>
       </li>
     </ul>
     <p class="navbar-text navbar-right">
@@ -33,14 +34,12 @@
         Logged In as <%= link_to current_user.name, bookmarks_path(id: current_user), class: "navbar-link" %>.
         <%= link_to "Log Out", logout_path, class: "navbar-link" %>
       <% else  %>
-        <%= link_to "Sign Up", new_user_path, class: "navbar-link" %> or
-        <%= link_to "Log In", new_session_path, class: "navbar-link" %>
+        <%= link_to "Log In", new_session_path, class: "navbar-link" %> or 
+        <%= link_to "Sign Up", new_user_path, class: "navbar-link" %>
       <% end %>
     </p>
   </div>
-</nav>
-    <div class="container">
-    
+</nav>    
     <% if flash[:notice] %>
       <div class="alert alert-success">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -57,8 +56,15 @@
         <%= flash[:alert] %>
       </div>
     <% end %>
+<div class="bg-primary">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-12"><h2><%= @topic ? @topic.topic : "All Topics" %></h2></div>
+    </div>
+    </div>
+</div>
 
   <%= yield %>
-  </div>
+
 </body>
 </html>

@@ -20,8 +20,8 @@ admin = User.new(
 admin.save
 
 #make some topics
-8.times do
-  topic = Topic.new( topic: "##{Faker::Lorem.word}")
+10.times do |t|
+  topic = Topic.new( topic: "##{Faker::Lorem.word}#{t}")
   topic.save!
 end
 topics = Topic.all

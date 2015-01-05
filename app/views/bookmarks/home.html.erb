@@ -1,13 +1,15 @@
-<div class="row">
-  <h3>Liked</h3>
-  <div class="col-md-4">
-    <div class="row">
-      <%= render partial: 'bookmark', collection: @likes, as: :bookmark,  locals: {column: "col-md-12"}%>    
-    </div>
-  </div>
-    <div class="col-md-8">
+<div class="container">
+  <div class="row">
+    <h3>Liked</h3>
+    <div class="col-md-4 likes">
       <div class="row">
-        <%= render partial: 'bookmark', collection: @bookmarks, locals: {column: "col-md-6"}%>
+        <%= render partial: 'bookmark', collection: @likes, as: :bookmark,  locals: {column: "col-md-12"}%>    
       </div>
     </div>
+      <div class="col-md-8">
+        <div class="row">
+          <%= render partial: 'bookmark', collection: @bookmarks, locals: {column: "col-md-6"}%>
+        </div>
+      </div>
+  </div>
 </div>

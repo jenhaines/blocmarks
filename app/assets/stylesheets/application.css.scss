@@ -7,12 +7,28 @@
     // background-color: #0099FF;
     // background-color: rgba(0, 153, 255, .3);
     padding-top: 120px;
+    // font-family: 'Open Sans', sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
-  
 
- .favorite {
-   // margin: 10px 0px;
- }
+  .navbar-nav,
+  .navbar-right {
+    font-size: 16px;
+  }
+
+  .center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // Classes
+.pull-left {
+  float: left !important;
+}
+.pull-right {
+  float: right !important;
+}
 
  .thumbnail{
   height: 260px;

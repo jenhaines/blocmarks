@@ -1,26 +1,22 @@
 <div class="<%= column %>">
   <div class="thumbnail">
-    <%= link_to bookmark.address do %>
-    <%= bookmark.thumbnail_url != "" ? (image_tag bookmark.thumbnail_url) : (render :inline => "<img data-src='holder.js/202x160'>") %>
-      <% end %>
+    <%= bookmark.thumbnail_url != "" ? (image_tag bookmark.thumbnail_url) : (image_tag 'filler.png', size: '180x180') %>
       <div class="caption">
-        <%= truncate(bookmark.title, length: 60) %>
-        <div class="favorite">
-          <% unless current_user.bookmarks.include?(bookmark) %>
-            <% if favorite = current_user.favorited(bookmark) %>
-              <%= link_to [bookmark, favorite], class: 'btn btn-success btn-xs', method: :delete do %>
-                <i class="glyphicon glyphicon-star-empty"> </i>&nbsp; Unlike
-              <% end %>
-            <% else %>
-              <%= link_to [bookmark, Favorite.new], class: 'btn btn-primary btn-xs', method: :post do %>
-                <i class="glyphicon glyphicon-star"> </i>&nbsp; Like
-              <% end %>
+        <p><b><%= truncate(bookmark.title, length: 30) %></b></p>
+        <p><%= link_to bookmark.address %></p>
+        <% unless current_user.bookmarks.include?(bookmark) %>
+          <% if favorite = current_user.favorited(bookmark) %>
+            <%= link_to [bookmark, favorite], class: 'btn btn-success btn-xs', method: :delete do %>
+              <i class="glyphicon glyphicon-star-empty"> </i>&nbsp; Unlike
             <% end %>
           <% else %>
-            <%= link_to "Delete", bookmark, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to [bookmark, Favorite.new], class: 'btn btn-primary btn-xs', method: :post do %>
+              <i class="glyphicon glyphicon-star"> </i>&nbsp; Like
+            <% end %>
           <% end %>
-          <%= bookmark.topics.pluck(:topic).join(", ") %>
-        </div>
+        <% else %>
+          <%= link_to "Delete", bookmark, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
       </div>
     </div>
     </div>
