@@ -1,6 +1,13 @@
+<div class="bg-primary">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-2 topbar">Favorites</div><div class="col-md-10 topbar">My Topics</div>
+    </div>
+    </div>
+</div> 
 <div class="container">
   <div class="row">
-    <h3>Liked</h3>
+  </br>
     <div class="col-md-4 likes">
       <div class="row">
         <%= render partial: 'bookmark', collection: @likes, as: :bookmark,  locals: {column: "col-md-12"}%>    
