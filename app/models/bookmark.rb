@@ -13,6 +13,10 @@ class Bookmark < ActiveRecord::Base
     self.topics.each { |t| t.destroy! if t.bookmarks.count == 1 }
   end
 
+  def self.topic_bookmarks( topic)
+    Bookmark.joins(:topics).where('bookmarktopics.topic_id = ?', topic.id)
+  end
+
 
 private
   def set_embedly_url

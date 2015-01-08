@@ -7,7 +7,7 @@ class BookmarksController < ApplicationController
     if (params.has_key?(:id) && params.has_key?(:topic))
       # @topics = @user.get_topics
       @topic = Topic.find(params[:topic])
-      @bookmarks = @topic.bookmarks
+      @bookmarks = @user.bookmarks.topic_bookmarks(@topic)
     elsif params[:id].to_i == @user.id 
       @bookmarks = @user.bookmarks
       @likes = @user.favbookmarks

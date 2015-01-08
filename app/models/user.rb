@@ -11,12 +11,4 @@ class User < ActiveRecord::Base
   def favorited(bookmark)
      favorites.where(bookmark_id: bookmark.id).first
   end
-
-  def get_topics
-    Topic.joins(bookmarks: :topics).where('bookmarks.user_id' => self)
-  end
-
-  def get_topic_bookmarks(topic)
-    Bookmark.joins(:topics).where('bookmarks.user_id = ? AND topic.id = ? ', self, topic)
-  end
 end

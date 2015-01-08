@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def my_topics
-    @my_topics = current_user.get_topics.uniq
+    @my_topics = Topic.get_topics(current_user).uniq
   end
 
 
