@@ -12,7 +12,6 @@ class IncomingController < ApplicationController
         if params.has_key?(:subject)
           subject = params[:subject]
           tops = subject.scan(/#\S+/)
-          puts "HASHTAGS #{tops}"
         end
         if params.has_key?(:'body-plain')
           body = params[:'body-plain']

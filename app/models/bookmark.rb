@@ -7,7 +7,7 @@ class Bookmark < ActiveRecord::Base
   after_create :set_embedly_url
 
 
-  default_scope { order('created_at ASC')}
+  default_scope { order('created_at DESC')}
 
   def orphan_check
     self.topics.each { |t| t.destroy! if t.bookmarks.count == 1 }

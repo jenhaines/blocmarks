@@ -35,7 +35,8 @@ urls = ["http://www.yahoo.com","http://www.msn.com", "http://www.google.com", "h
  20.times do
    Bookmark.create!(
      user:   users.sample,
-     address: urls[rand((urls.length-1))]
+     address: urls[rand((urls.length-1))],
+     created_at: Faker::Date.between(10.days.ago, Date.today)
    ) 
  end
  bookmarks = Bookmark.all

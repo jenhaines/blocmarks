@@ -1,9 +1,15 @@
 <div class="<%= column %>">
   <div class="thumbnail">
+        <p><b><%= truncate(bookmark.topics.pluck(:topic).join(", "), length: 35) %></b></p>
+
     <%= bookmark.thumbnail_url != "" ? (image_tag bookmark.thumbnail_url) : (image_tag 'filler.png', size: '180x180') %>
       <div class="caption">
-        <p><b><%= truncate(bookmark.title, length: 30) %></b></p>
-        <p><%= link_to truncate(bookmark.address, length: 30), bookmark.address %></p>
+        <b><%= truncate(bookmark.title, length: 30) %></b></br>
+        <%= link_to truncate(bookmark.address, length: 30), bookmark.address %>
+        </br>
+        <i>Added on: <%= bookmark.created_at.strftime("%m/%d/%Y") %></i>
+
+        <div class="pull-right">
         <% unless current_user.bookmarks.include?(bookmark) %>
           <% if favorite = current_user.favorited(bookmark) %>
             <%= link_to [bookmark, favorite], class: 'btn btn-success btn-xs', method: :delete do %>
@@ -17,7 +23,7 @@
         <% else %>
           <%= link_to "Delete", bookmark, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
-        <%= truncate(bookmark.topics.pluck(:topic).join(", "), length: 30) %>
+        </div>
       </div>
     </div>
     </div>

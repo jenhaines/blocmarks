@@ -12,10 +12,15 @@ class ApplicationController < ActionController::Base
     @topics = Topic.all
   end
 
+  def my_topics
+    @my_topics = current_user.get_topics.uniq
+  end
+
+
  private
    def current_user
      @current_user ||= User.find(session[:user_id]) if session[:user_id]
    end
 
-   helper_method :current_user, :topics
+   helper_method :current_user, :topics, :my_topics
 end

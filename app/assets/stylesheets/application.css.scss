@@ -21,9 +21,13 @@
   }
 
   .topbar {
-     font-size: 26px;
-     padding: 10px 0 10px 0;
-     text-align: center;
+    font-size: 18px;
+    padding: 10px 0px 10px 0px;
+    color: #fff;
+  }
+  
+  .topbar a{
+    color: #fff;
   }
 
   .center-block {
@@ -41,7 +45,13 @@
 }
 
  .thumbnail{
-  height: 260px;
+  height: 280px;
   width: 282px;
  }
+
+ .jumbotron{
+  // background-color: #000;
+  margin: 0;
+ }
+
 

@@ -3,7 +3,12 @@ class BookmarksController < ApplicationController
 
   def index
     @user = current_user
-    if params[:id].to_i == @user.id 
+
+    if (params.has_key?(:id) && params.has_key?(:topic))
+      # @topics = @user.get_topics
+      @topic = Topic.find(params[:topic])
+      @bookmarks = @topic.bookmarks
+    elsif params[:id].to_i == @user.id 
       @bookmarks = @user.bookmarks
       @likes = @user.favbookmarks
       render 'home'      
