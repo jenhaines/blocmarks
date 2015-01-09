@@ -11,7 +11,15 @@
 * "Like" and "unlike" other bookmarks to add/remove to your personal list.
 * Click a hashtag to see bookmarks with the same category.
 
+####Blocmarks uses the following technologies####
+
+[Nitrous.io](http://nitrous.io) (for hosting)
+
+[Embedly](http://www.http://embed.ly/) for creating website thumbnails.
+
+[Mailgun](http://www.mailgun.com) for email services.
+
 [Heroku Site](https://blocmarks-jh.herokuapp.com/)
 
-*more to come*
+*developed by Jen Haines with the assistance of [bloc.io](http://www.bloc.io)*
 
