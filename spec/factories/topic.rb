@@ -1,7 +1,7 @@
-require 'faker'
+# require 'faker'
 
-FactoryGirl.define do
-   factory :topic do
-     topic "##{Faker::Lorem.word}"
-   end
- end
+# FactoryGirl.define do
+#    factory :topic do
+#      topic "##{Faker::Lorem.word}"
+#    end
+#  end

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
 
   def authorize
-    redirect_to login_url, alert: "Not authorized" if current_user.nil?
+    redirect_to login_url, alert: "Please log in first to view topics." if current_user.nil?
   end
 
   def topics

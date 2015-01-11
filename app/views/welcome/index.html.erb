@@ -2,7 +2,9 @@
   <div class="container">
     <div class="row">
     <div class='col-md-6'>
-      <%= image_tag 'https://s3-us-west-1.amazonaws.com/blocmarks/screenshot.png' , size: "440x280"%>
+      <%= image_tag 'https://s3-us-west-1.amazonaws.com/blocmarks/screenshot.png' , size: "440x280", class: 'screenshot'%>
+      </br>
+      <p><%= link_to 'Sign Up', new_user_path, class: 'btn btn-primary btn-lg' %></p>
     </div>
       <div class="col-md-6 text-right">
         <h2>Blocmark It!</h2>
@@ -17,4 +19,21 @@
       </div>
     </div>
   </div>
+</div>
+<div class='container'>
+<div class='row'>
+<div class='col-md-4'>
+<h2>Sign Up</h2>
+          <p>First sign up for your Free blocmarks account by clicking the button above. You will receive an email confirmation with instructions on how to get your bookmarks sent to blocmarks.</p>
+</div>
+<div class='col-md-4'>
+  <h2>Email</h2>
+            <p>Email your bookmarks to blocmarks. Once blockmarks receive's the email, it will be uploaded to the system. Put #hashtags in the subject line to add a topic category to the bookmarks.</p>
+</div>
+<div class='col-md-4'>
+  <h2>Share</h2>
+            <p>Share your bookmarks with others by using #hashtags to add a topic category. This will provide an easy way for others to find your bookmarks. You can also "like" other bookmarks to save them for future reference.</p>
+</div>
+</div>
+
 </div>

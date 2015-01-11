@@ -69,5 +69,17 @@
 
 <%= yield %>
 
+  <div class='container'>
+    <div class='row'>
+      <div class='col-md-12'>
+        <hr>
+        <footer>
+            <%= mail_to BM_EMAIL,  'email a bookmark' %>
+            <p>&copy; Company 2015 </p>
+        </footer>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
