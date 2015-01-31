@@ -3,7 +3,7 @@ ActionMailer::Base.smtp_settings = {
   address:           'smtp.mailgun.org',
   user_name:         ENV['MAILGUN_SMTP_LOGIN'],
   password:          ENV['MAILGUN_SMTP_PASSWORD'],
-  domain:            'http://grazier1-175450.usw1-2.nitrousbox.com',
+  domain:            'https://blocmarks-jh.herokuapp.com',
   authentication:    :plain,
   content_type:      'text/html'
 }
